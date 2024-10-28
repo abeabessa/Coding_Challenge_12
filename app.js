@@ -35,7 +35,7 @@ function draw(e) {
     ctx.moveTo(e.offsetX, e.offsetY);
 }
 
-// Function to draw shapes based on the selected tool
+// Function drawing shapes 
 canvas.addEventListener('mouseup', (e) => {
     if (!drawing) return;
     const tool = document.querySelector('input[name="tool"]:checked').value;
@@ -54,7 +54,7 @@ canvas.addEventListener('mouseup', (e) => {
             drawCircle(startX, startY, e.offsetX, e.offsetY);
             break;
     }
-    ctx.beginPath(); // Reset the path
+    ctx.beginPath(); // Reseting the path
 });
 
 function drawLine(x1, y1, x2, y2) {
@@ -79,7 +79,7 @@ function drawCircle(x1, y1, x2, y2) {
     ctx.stroke();
 }
 
-// Function to clear the canvas
+// Function clearing the canvas
 document.getElementById('clear-canvas').addEventListener('click', () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 });
