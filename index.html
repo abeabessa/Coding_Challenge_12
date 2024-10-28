@@ -1,0 +1,35 @@
+index.html 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Drawing Application</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Interactive Drawing Application</h1>
+    
+    <div>
+        <label for="drawing-tool">Choose a drawing tool:</label>
+        <input type="radio" name="tool" value="line" id="line" checked> Line
+        <input type="radio" name="tool" value="rectangle" id="rectangle"> Rectangle
+        <input type="radio" name="tool" value="circle" id="circle"> Circle
+    </div>
+    
+    <div>
+        <label for="color-picker">Select Color:</label>
+        <input type="color" id="color-picker" value="#000000">
+    </div>
+
+    <button id="clear-canvas">Clear Canvas</button>
+    
+    <canvas id="drawing-canvas" width="800" height="600"></canvas>
+    
+    <script src="app.js"></script>
+</body>
+</html>
