@@ -34,3 +34,48 @@ function draw(e) {
     ctx.beginPath(); // Reset the path for the next segment
     ctx.moveTo(e.offsetX, e.offsetY);
 }
+
+// Function to draw shapes based on the selected tool
+canvas.addEventListener('mouseup', (e) => {
+    if (!drawing) return;
+    const tool = document.querySelector('input[name="tool"]:checked').value;
+    
+    ctx.strokeStyle = document.getElementById('color-picker').value;
+    ctx.lineWidth = 2;
+
+    switch (tool) {
+        case 'line':
+            drawLine(startX, startY, e.offsetX, e.offsetY);
+            break;
+        case 'rectangle':
+            drawRect(startX, startY, e.offsetX, e.offsetY);
+            break;
+        case 'circle':
+            drawCircle(startX, startY, e.offsetX, e.offsetY);
+            break;
+    }
+    ctx.beginPath(); // Reset the path
+});
+
+function drawLine(x1, y1, x2, y2) {
+    ctx.beginPath();
+    ctx.moveTo(x1, y1);
+    ctx.lineTo(x2, y2);
+    ctx.stroke();
+}
+
+function drawRect(x1, y1, x2, y2) {
+    ctx.beginPath();
+    const width = x2 - x1;
+    const height = y2 - y1;
+    ctx.rect(x1, y1, width, height);
+    ctx.stroke();
+}
+
+function drawCircle(x1, y1, x2, y2) {
+    ctx.beginPath();
+    const radius = Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
+    ctx.arc(x1, y1, radius, 0, Math.PI * 2);
+    ctx.stroke();
+}
+
