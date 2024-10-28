@@ -79,3 +79,7 @@ function drawCircle(x1, y1, x2, y2) {
     ctx.stroke();
 }
 
+// Function to clear the canvas
+document.getElementById('clear-canvas').addEventListener('click', () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+});
